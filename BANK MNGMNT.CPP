@@ -32,3 +32,18 @@ int main() {
     showMenu();
     return 0;
 }
+
+void deposit(double amount) {
+    balance += amount;
+    cout << "Deposited: " << amount << endl;
+}
+
+void withdraw(double amount) {
+    if (balance >= amount) {
+        balance -= amount;
+        cout << "Withdrawn: " << amount << endl;
+    } else {
+        cout << "Insufficient funds!" << endl;
+    }
+}
+
