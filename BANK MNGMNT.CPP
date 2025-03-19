@@ -161,6 +161,27 @@ void deleteAccount(int accountNum) {
     cout << "Account not found!" << endl;
 }
 
+class Transaction {
+public:
+    string type;
+    double amount;
+
+    Transaction(string t, double a) : type(t), amount(a) {}
+};
+
+vector<Transaction> history;
+
+void addTransaction(string type, double amount) {
+    history.push_back(Transaction(type, amount));
+}
+
+void showTransactionHistory() {
+    for (auto& t : history) {
+        cout << t.type << " of " << t.amount << endl;
+    }
+}
+
+
 
 
 
