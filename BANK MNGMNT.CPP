@@ -181,6 +181,29 @@ void showTransactionHistory() {
     }
 }
 
+void saveToFile() {
+    ofstream outFile("accounts.txt");
+    for (int i = 0; i < numAccounts; i++) {
+        outFile << accounts[i]->getAccountNumber() << " "
+                << accounts[i]->accountHolder << " "
+                << accounts[i]->balance << endl;
+    }
+    outFile.close();
+}
+
+void loadFromFile() {
+    ifstream inFile("accounts.txt");
+    int accNum;
+    string holder;
+    double balance;
+    while (inFile >> accNum >> holder >> balance) {
+        BankAccount* newAccount = new BankAccount(accNum, holder, balance);
+        addAccount(newAccount);
+    }
+    inFile.close();
+}
+
+
 
 
 
