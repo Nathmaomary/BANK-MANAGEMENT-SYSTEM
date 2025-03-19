@@ -212,6 +212,17 @@ void showMainMenu() {
     cout << "7. Exit" << endl;
 }
 
+void withdraw(double amount) {
+    if (amount > 0 && amount <= balance) {
+        balance -= amount;
+        addTransaction("Withdrawal", amount);
+        cout << "Withdrawal successful!" << endl;
+    } else {
+        cout << "Invalid or insufficient funds for withdrawal!" << endl;
+    }
+}
+
+
 
 
 
