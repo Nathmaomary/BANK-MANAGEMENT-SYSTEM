@@ -148,6 +148,19 @@ int main() {
 bool isValidAmount(double amount) {
     return amount > 0;
 }
+void deleteAccount(int accountNum) {
+    for (int i = 0; i < numAccounts; i++) {
+        if (accounts[i]->getAccountNumber() == accountNum) {
+            delete accounts[i];
+            accounts[i] = accounts[numAccounts - 1];
+            numAccounts--;
+            cout << "Account " << accountNum << " deleted!" << endl;
+            return;
+        }
+    }
+    cout << "Account not found!" << endl;
+}
+
 
 
 
