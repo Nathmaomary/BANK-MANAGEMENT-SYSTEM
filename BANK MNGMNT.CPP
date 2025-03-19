@@ -202,6 +202,16 @@ void loadFromFile() {
     }
     inFile.close();
 }
+void showMainMenu() {
+    cout << "\n1. Create Account" << endl;
+    cout << "2. Deposit" << endl;
+    cout << "3. Withdraw" << endl;
+    cout << "4. Display Account Details" << endl;
+    cout << "5. Show All Accounts" << endl;
+    cout << "6. Delete Account" << endl;
+    cout << "7. Exit" << endl;
+}
+
 
 
 
