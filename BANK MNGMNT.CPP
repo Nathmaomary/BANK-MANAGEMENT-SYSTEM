@@ -90,4 +90,60 @@ int main() {
     return 0;
 }
 
+class BankAccount {
+private:
+    int accountNumber;
+    string accountHolder;
+    double balance;
+
+public:
+    BankAccount(int accNum, string accHolder, double initialBalance)
+        : accountNumber(accNum), accountHolder(accHolder), balance(initialBalance) {}
+
+    void displayAccountDetails() const {
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Account Holder: " << accountHolder << endl;
+        cout << "Balance: " << balance << endl;
+    }
+
+    int getAccountNumber() const { return accountNumber; }
+};
+
+class Bank {
+private:
+    BankAccount* accounts[10];
+    int numAccounts;
+
+public:
+    Bank() : numAccounts(0) {}
+
+    void addAccount(BankAccount* account) {
+        if (numAccounts < 10) {
+            accounts[numAccounts++] = account;
+        } else {
+            cout << "Bank is full!" << endl;
+        }
+    }
+
+    void displayAllAccounts() {
+        for (int i = 0; i < numAccounts; i++) {
+            accounts[i]->displayAccountDetails();
+        }
+    }
+};
+
+int main() {
+    Bank bank;
+    BankAccount* acc1 = new BankAccount(101, "John Doe", 5000);
+    bank.addAccount(acc1);
+    
+    BankAccount* acc2 = new BankAccount(102, "Jane Smith", 3000);
+    bank.addAccount(acc2);
+
+    bank.displayAllAccounts();
+
+    return 0;
+}
+
+
 
