@@ -145,5 +145,10 @@ int main() {
     return 0;
 }
 
+bool isValidAmount(double amount) {
+    return amount > 0;
+}
+
+
 
 
